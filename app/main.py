@@ -89,15 +89,15 @@ def prediction():
 
         pred = model.predict([data])
         if pred[0] == 'DrugY':
-            pred = "Used Drug Y "
+            pred = "Drug Y "
         elif pred[0] == 'drugA':
-            pred = "Used Drug A"
+            pred = "Drug A"
         elif pred[0] == 'drugB':
-            pred= "Used Drug B"
+            pred= "Drug B"
         elif pred[0]=='drugC':
-            pred="Used  drug C"
+            pred="drug C"
         elif pred[0]=='drugX':
-            pred="Used drug X"
+            pred="drug X"
 
     return render_template("result.html", result=pred)
 
