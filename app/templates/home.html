@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DRUG Prediction</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-image: url('../static/img2.jpg');
+
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 10px;
+      color: white;
+    }
+
+    h4 {
+        padding: 4px;
+        margin: 6px 0px;
+        margin-top: 5px;
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 5px;
+    }
+
+    
+    h5{
+        padding: 4px;
+        margin-top: 5px;
+        font-size: 10px;
+        color: #666;
+        margin: 6px 0px;
+    }
+
+    form {
+      width: 80%;
+      max-width: 500px;
+      max-height: 700px;
+      margin: 0 auto;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f2f2f2;
+    }
+
+    input[type=text], select {
+      width: 100%;
+      padding: 5px;
+      margin: 5px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button[type=submit] {
+      width: 25%;
+      text-align: center;
+      background-color: #4267b2;
+      color: white;
+      padding: 5px 5px;
+      margin: 6px 0px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+
+    }
+
+    button[type=submit]:hover {
+      background-color: #223864;
+    }
+  option {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  z-index: 999;
+  margin: 0 0;
+  padding: 0 0;
+  list-style: none;
+  border: 1px solid #ccc;
+  background-color: rgb(240, 237, 237);
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+
+.hover {
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+
+}
+
+    .notification {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 300px;
+      background-color: #4267b2;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      z-index: 1;
+      transition: transform 0.5s ease-in-out;
+      transform: translateX(100%);
+    }
+
+    .show {
+      transform: translateX(0);
+    }
+  
+  </style>
+</head>
+<body>
+  <h1>Drug Prediction For Patient</h1>
+
+    <form action="{{ url_for('prediction')}} " method="post">
+     
+      <label for="Age" >Age:</label>
+      <input type="text" id="Age" name="Age" placeholder="Age">
+
+      <label for="Na_to_K">Na_to_K: </label>
+      <input type="text" id="Na_to_K" name="Na_to_K" placeholder="Na_to_K">
+  
+      <label for="BP">BP:</label>
+
+      <select name="BP" id="BP">
+        <option selected>Click To Select</option>
+        <b><option value="HIGH" class="hover"><b>HIGH</b></option></b>
+        <option value="HIGH" class="hover"><b>LOW</b></option>
+        <option value="NORMAL" class="hover"><b>NORMAL</b> </option>
+      </select>
+  
+      <label for="Cholesterol">Cholesterol:</label>
+      <select name="Cholesterol" id="Cholesterol">
+        <option selected>Click To Select</option>
+        <option value="HIGH" class="hover"><b>HIGH</b></option>
+        <option value="NORMAL" class="hover"><b>NORMAL</b> </option>
+      </select>
+
+    <button type="submit" onclick="showNotification()">Test</button>
+    <h4> Submit and know Which medicine is preferable for the paitient</h4>
+    <h4><u>Notes:</h4></u>
+    <h5> 1. Submit only numbers</h5>
+    <h5> 2. Please fill up the Section </h5>
+  </body>
+</html>
